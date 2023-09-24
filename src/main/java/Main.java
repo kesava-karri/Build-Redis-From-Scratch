@@ -22,9 +22,8 @@ public class Main {
       try {
         if (clientSocket != null) {
           OutputStream outputStream = clientSocket.getOutputStream();
-          String str = new String();
           DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-          dataOutputStream.write(str.getBytes("+PONG\r\n"));
+          dataOutputStream.write("+PONG\r\n".getBytes());
           clientSocket.close();
         }
       } catch (IOException e) {
