@@ -1,5 +1,3 @@
 java_redis.jar
-.DS_Store
-src/.DS_Store
 .gitignore
 dump.rdb
