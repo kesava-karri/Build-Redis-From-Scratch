@@ -20,11 +20,13 @@ public class Main {
       System.out.println("IOException: " + e.getMessage());
     } finally {
       try {
-        if (clientSocket != null) {
+        while (clientSocket != null) {
           OutputStream outputStream = clientSocket.getOutputStream();
           DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
           dataOutputStream.write("+PONG\r\n".getBytes());
-          clientSocket.close();
+          clientSocket.setKeepAlive(true);
+
+          // clientSocket.close();
         }
       } catch (IOException e) {
         System.out.println("IOException: " + e.getMessage());
